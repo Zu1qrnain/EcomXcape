@@ -11,18 +11,18 @@ export default function Hero() {
           color: #e0e0e0;
         }
         .hero-trial-theme .badge {
-          background: rgba(26, 77, 46, 0.1);
+          background: rgba(26, 77, 46, 0.15);
           color: #f5f5f5;
-          border: 1px solid rgba(26, 77, 46, 0.2);
+          border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .hero-trial-theme .badge .dot {
-          background: #1a4d2e;
+          background: #d4af37;
         }
         .hero-trial-theme h1 {
           color: #f5f5f5;
         }
         .hero-trial-theme h1 em {
-          color: #1a4d2e;
+          color: #d4af37;
         }
         .hero-trial-theme .sub {
           color: #b0b0b0;
@@ -30,44 +30,54 @@ export default function Hero() {
         .hero-trial-theme .btn-p {
           background: #1a4d2e;
           color: #fff;
-          border-color: #1a4d2e;
+          border: 1px solid #1a4d2e;
+          transition: all 0.3s ease;
         }
         .hero-trial-theme .btn-p:hover {
-          background: #123821;
-          border-color: #123821;
+          background: #d4af37;
+          border-color: #d4af37;
+          color: #1e1e1e;
         }
         .hero-trial-theme .btn-s {
           background: transparent;
           color: #e0e0e0;
-          border-color: #555;
+          border: 1px solid #555;
+          transition: all 0.3s ease;
         }
         .hero-trial-theme .btn-s:hover {
-          background: rgba(255,255,255,0.05);
-          border-color: #888;
+          background: rgba(212, 175, 55, 0.1);
+          border-color: #d4af37;
+          color: #d4af37;
         }
         .hero-trial-theme .tn {
-          color: #f5f5f5;
+          color: #d4af37;
         }
         .hero-trial-theme .tl {
           color: #a0a0a0;
         }
         .hero-trial-theme .tdiv {
-          background: #444;
+          background: linear-gradient(to bottom, transparent, #555, transparent);
         }
         .hero-trial-theme .rc {
-          background: #2b2b2b;
-          border: 1px solid #444;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+          background: rgba(43, 43, 43, 0.8);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.05);
+          box-shadow: 0 10px 40px rgba(0,0,0,0.6);
         }
         .hero-trial-theme .rc-h {
-          border-bottom: 1px solid #444;
+          border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .hero-trial-theme .rc-t {
           color: #e0e0e0;
         }
         .hero-trial-theme .rb {
-          background: #363636;
-          border: 1px solid #444;
+          background: rgba(54, 54, 54, 0.6);
+          border: 1px solid rgba(255,255,255,0.03);
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .hero-trial-theme .rb:hover {
+          transform: translateY(-3px);
+          border-color: rgba(212, 175, 55, 0.4);
         }
         .hero-trial-theme .pl {
           color: #b0b0b0;
@@ -79,12 +89,13 @@ export default function Hero() {
           color: #4caf7d;
         }
         .hero-trial-theme .cr {
-          background: #1a1a1a;
-          border-top: 1px solid #444;
+          background: rgba(26, 26, 26, 0.8);
+          border-top: 1px solid rgba(255,255,255,0.05);
         }
         .hero-trial-theme .ca {
           background: #1a4d2e;
           color: #fff;
+          border: 1px solid rgba(212, 175, 55, 0.3);
         }
         .hero-trial-theme .cn {
           color: #e0e0e0;
@@ -96,11 +107,19 @@ export default function Hero() {
           color: #4caf7d;
         }
         .hero-trial-theme .live {
-          background: rgba(26, 77, 46, 0.1);
-          color: #1a4d2e;
+          background: rgba(212, 175, 55, 0.15);
+          color: #d4af37;
+          border: 1px solid rgba(212, 175, 55, 0.2);
         }
         .hero-trial-theme .ldot {
-          background: #1a4d2e;
+          background: #d4af37;
+          box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+          animation: pulseGold 2s infinite;
+        }
+        @keyframes pulseGold {
+          0% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(1.2); }
+          100% { opacity: 1; transform: scale(1); }
         }
       `}</style>
       <div className="hero hero-trial-theme">
@@ -127,10 +146,10 @@ export default function Hero() {
             <div className="rc">
               <div className="rc-h"><span className="rc-t">Live Client Stores</span><span className="live"><span className="ldot"></span>Live</span></div>
               <div className="rg">
-                <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">eBay Store</div><div className="am">$4,280</div><div className="gr">↑ 22% this month</div><div style={{fontSize:'10px',color:'#1a4d2e',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
-                <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">Amazon FBA</div><div className="am">$8,560</div><div className="gr">↑ 34% this month</div><div style={{fontSize:'10px',color:'#1a4d2e',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
-                <a href="https://www.tiktok.com/shop" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">TikTok Shop</div><div className="am">$6,120</div><div className="gr">↑ 41% this month</div><div style={{fontSize:'10px',color:'#1a4d2e',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
-                <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">Walmart</div><div className="am">$11,300</div><div className="gr">↑ 28% this month</div><div style={{fontSize:'10px',color:'#1a4d2e',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
+                <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">eBay Store</div><div className="am">$4,280</div><div className="gr">↑ 22% this month</div><div style={{fontSize:'10px',color:'#d4af37',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
+                <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">Amazon FBA</div><div className="am">$8,560</div><div className="gr">↑ 34% this month</div><div style={{fontSize:'10px',color:'#d4af37',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
+                <a href="https://www.tiktok.com/shop" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">TikTok Shop</div><div className="am">$6,120</div><div className="gr">↑ 41% this month</div><div style={{fontSize:'10px',color:'#d4af37',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
+                <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noreferrer" className="rb" style={{textDecoration:'none',display:'block'}}><div className="pl">Walmart</div><div className="am">$11,300</div><div className="gr">↑ 28% this month</div><div style={{fontSize:'10px',color:'#d4af37',marginTop:'4px',fontWeight:600}}>Visit Store →</div></a>
               </div>
               <div className="cr">
                 <div className="ca">MR</div>

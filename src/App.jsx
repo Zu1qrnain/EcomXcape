@@ -6,6 +6,7 @@ import Services from './components/sections/Services'
 import Platforms from './components/sections/Platforms'
 import TrustpilotReviews from './components/sections/TrustpilotReviews'
 import Process from './components/sections/Process'
+import Why from './components/sections/Why'
 import FAQ from './components/sections/FAQ'
 import CTA from './components/sections/CTA'
 import Contact from './components/sections/Contact'
@@ -20,8 +21,9 @@ function App() {
       <TrustTicker />
       <Services />
       <Platforms />
-      <TrustpilotReviews />
       <Process />
+      <Why />
+      <TrustpilotReviews />
       <FAQ />
       <CTA />
       <Contact />
