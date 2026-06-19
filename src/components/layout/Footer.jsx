@@ -4,7 +4,7 @@ export default function Footer() { return (
   <div className="fi2">
     <div className="ft">
       <div>
-        <span className="flogo">EcomXcape <span>Agency</span></span>
+        <img src="/ecomxcape logo final.png" alt="EcomXcape Agency" style={{ height: '80px', marginBottom: '16px', objectFit: 'contain' }} />
         <p className="fd">The #1 eCommerce Automation Agency. 500+ Clients Profiting Since 2019. Six Platforms, One Team, Infinite Passive Income.</p>
       </div>
       <div className="fc"><h4>Services</h4><ul className="fl"><li><a href="#amazon">Amazon FBA</a></li><li><a href="#ebay">eBay Automation</a></li><li><a href="#tiktok">TikTok Shop</a></li></ul></div>

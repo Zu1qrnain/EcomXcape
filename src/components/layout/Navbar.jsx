@@ -6,9 +6,9 @@ export default function Navbar() {
   return (
     <>
       <nav id="mainNav">
-        <a href="#" className="logo">
-          {/* Logo placeholder - replace src when logo is provided */}
-          <img src="" alt="EcomXcape" className="logo-img" style={{ minWidth: '80px', minHeight: '60px', backgroundColor: '#0a1628', borderRadius: '6px' }} />
+        <a href="#" className="logo" style={{ background: 'transparent', padding: 0, display: 'flex', alignItems: 'center' }}>
+          {/* Main Logo */}
+          <img src="/ecomxcape logo final.png" alt="EcomXcape" className="logo-img" style={{ height: '48px', width: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />
         </a>
         <div className="nav-links">
           <a href="#services">Services</a>
