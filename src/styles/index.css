@@ -44,10 +44,10 @@ h1 em{font-style:italic;color:var(--gold)}
 .cn{font-size:12px;font-weight:600;color:#fff}
 .cd{font-size:11px;color:rgba(255,255,255,.55);margin-top:1px}
 .cp{font-size:13px;font-weight:700;color:var(--gold-l)}
-.ticker{background:var(--navy);padding:13px 0;overflow:hidden}
+.ticker{background:linear-gradient(90deg, #d4af37, #e5c458, #d4af37);padding:14px 0;overflow:hidden;border-top:1px solid #c49f27;border-bottom:1px solid #c49f27}
 .tt{display:flex;animation:tick 28s linear infinite;white-space:nowrap}
-.ti2{display:inline-flex;align-items:center;gap:8px;padding:0 32px;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.5px}
-.ti2 span{color:var(--gold);font-size:15px}
+.ti2{display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-size:14px;font-weight:800;color:#1e1e1e;text-transform:uppercase;letter-spacing:1.5px}
+.ti2 span{font-size:18px;text-shadow:none;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.1))}
 @keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 section{padding:88px 40px}
 .si{max-width:1200px;margin:0 auto}
