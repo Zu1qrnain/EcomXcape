@@ -12,6 +12,7 @@ import CTA from './components/sections/CTA'
 import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
 import QualifyModal from './components/QualifyModal'
+import Team from './components/sections/Team'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Platforms />
       <Process />
       <Why />
+      <Team />
       <TrustpilotReviews />
       <FAQ />
       <CTA />
