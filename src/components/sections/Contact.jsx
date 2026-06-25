@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+    service: "",
+    message: ""
+  });
+  const [status, setStatus] = useState("idle"); // idle, loading, success, error
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("loading");
+    
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/k1rp4vdjdz2ra", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              "Full Name": formData.name,
+              "Email": formData.email,
+              "WhatsApp": formData.whatsapp,
+              "Service": formData.service,
+              "Message": formData.message,
+              "Date": new Date().toLocaleString()
+            }
+          ]
+        })
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", whatsapp: "", service: "", message: "" });
+        setTimeout(() => setStatus("idle"), 5000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       <style>{`
+        /* ... existing styles remain exactly the same ... */
         .contact-cinematic {
           background-color: #1e1e1e;
           color: #e0e0e0;
@@ -165,7 +217,6 @@ export default function Contact() {
           color: rgba(255, 255, 255, 0.2);
         }
 
-        /* The Eye-Catchy Focus Glow */
         .glass-input:focus {
           outline: none;
           background: rgba(255, 255, 255, 0.05);
@@ -217,6 +268,32 @@ export default function Contact() {
           box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
         }
 
+        .btn-submit:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+
+        .status-message {
+          margin-top: 16px;
+          padding: 12px;
+          border-radius: 8px;
+          text-align: center;
+          font-weight: 600;
+          font-size: 14px;
+        }
+        .status-success {
+          background: rgba(0, 182, 122, 0.1);
+          color: #00b67a;
+          border: 1px solid rgba(0, 182, 122, 0.2);
+        }
+        .status-error {
+          background: rgba(255, 82, 82, 0.1);
+          color: #ff5252;
+          border: 1px solid rgba(255, 82, 82, 0.2);
+        }
+
         /* Mobile */
         @media (max-width: 900px) {
           .contact-cinematic { padding: 80px 20px; }
@@ -248,26 +325,56 @@ export default function Contact() {
             </div>
 
             {/* Right Side: Glass Console */}
-            <div className="contact-console">
+            <form className="contact-console" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">Full Name</label>
-                  <input type="text" className="glass-input" placeholder="John Smith" />
+                  <input 
+                    type="text" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="glass-input" 
+                    placeholder="John Smith" 
+                    required 
+                  />
                 </div>
                 <div className="form-group">
                   <label className="form-label">Email Address</label>
-                  <input type="email" className="glass-input" placeholder="john@email.com" />
+                  <input 
+                    type="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="glass-input" 
+                    placeholder="john@email.com" 
+                    required 
+                  />
                 </div>
               </div>
 
               <div className="form-group">
                 <label className="form-label">WhatsApp Number</label>
-                <input type="tel" className="glass-input" placeholder="+1 (555) 000-0000" />
+                <input 
+                  type="tel" 
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleChange}
+                  className="glass-input" 
+                  placeholder="+1 (555) 000-0000" 
+                  required 
+                />
               </div>
 
               <div className="form-group">
                 <label className="form-label">Interested In</label>
-                <select className="glass-input">
+                <select 
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="glass-input" 
+                  required
+                >
                   <option value="">Select a service...</option>
                   <option value="amazon">Amazon FBA Automation</option>
                   <option value="ebay">eBay Store Automation</option>
@@ -277,11 +384,34 @@ export default function Contact() {
 
               <div className="form-group">
                 <label className="form-label">Message (Optional)</label>
-                <textarea className="glass-input" placeholder="Tell us about your goals..."></textarea>
+                <textarea 
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="glass-input" 
+                  placeholder="Tell us about your goals..."
+                ></textarea>
               </div>
 
-              <button className="btn-submit">🚀 Send My Request</button>
-            </div>
+              <button 
+                type="submit" 
+                className="btn-submit"
+                disabled={status === "loading"}
+              >
+                {status === "loading" ? "⏳ Sending..." : "🚀 Send My Request"}
+              </button>
+
+              {status === "success" && (
+                <div className="status-message status-success">
+                  ✅ Message sent successfully! We'll be in touch soon.
+                </div>
+              )}
+              {status === "error" && (
+                <div className="status-message status-error">
+                  ❌ Something went wrong. Please try again or email us directly.
+                </div>
+              )}
+            </form>
 
           </div>
         </div>
