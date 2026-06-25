@@ -13,6 +13,7 @@ import Contact from './components/sections/Contact'
 import Footer from './components/layout/Footer'
 import QualifyModal from './components/QualifyModal'
 import Team from './components/sections/Team'
+import ROICalculator from './components/sections/ROICalculator'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Why />
       <Team />
       <TrustpilotReviews />
+      <ROICalculator />
       <FAQ />
       <CTA />
       <Contact />
