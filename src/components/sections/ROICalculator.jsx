@@ -213,20 +213,33 @@ export default function ROICalculator() {
                   </div>
                   <div className="roi-yc-row">
                     <div className="roi-yc y1">
-                      <div className="roi-yc-l">Year 1</div>
-                      <div className="roi-yc-v">{fmt(p.year1Profit)}</div>
+                      <div className="roi-yc-l">Year 1 Total Profit</div>
+                      <div className="roi-yc-v" style={{marginBottom: '12px'}}>{fmt(p.year1GrossProfit)}</div>
+                      <div className="roi-yc-l">Your Share</div>
+                      <div className="roi-yc-v" style={{fontSize:'18px', color:'#d4af37'}}>{fmt(p.year1Profit)}</div>
                     </div>
                     <div className="roi-yc y2">
-                      <div className="roi-yc-l">Year 2</div>
-                      <div className="roi-yc-v">{fmt(p.year2Profit)}</div>
+                      <div className="roi-yc-l">Year 2 Total Profit</div>
+                      <div className="roi-yc-v" style={{marginBottom: '12px'}}>{fmt(p.year2GrossProfit)}</div>
+                      <div className="roi-yc-l">Your Share</div>
+                      <div className="roi-yc-v" style={{fontSize:'18px', color:'#d4af37'}}>{fmt(p.year2Profit)}</div>
                     </div>
                     <div className="roi-yc y3">
-                      <div className="roi-yc-l">Year 3</div>
-                      <div className="roi-yc-v">{fmt(p.year3Profit)}</div>
+                      <div className="roi-yc-l">Year 3 Total Profit</div>
+                      <div className="roi-yc-v" style={{marginBottom: '12px'}}>{fmt(p.year3GrossProfit)}</div>
+                      <div className="roi-yc-l">Your Share</div>
+                      <div className="roi-yc-v" style={{fontSize:'18px', color:'#d4af37'}}>{fmt(p.year3Profit)}</div>
                     </div>
                   </div>
                 </div>
               ))}
+
+              <div className="roi-alert-box">
+                <span className="roi-alert-icon">💡</span>
+                <p>
+                  <strong>Growth Mechanism:</strong> Your initial investment remains constant, while revenue and profit compound over time. Your share of the profits can be continuously reinvested to aggressively scale revenue and profit per store (except for eBay, which scales organically without capital constraints).
+                </p>
+              </div>
 
               {/* 3-Year Portfolio */}
               <div className="roi-portfolio">
@@ -235,27 +248,33 @@ export default function ROICalculator() {
                 <div className="roi-p-grid">
                   <div className="roi-p-card y1">
                     <div className="roi-p-card-l">Year 1</div>
-                    <div className="roi-p-card-v">{fmt(results.year1Profit)}</div>
-                    <div className="roi-p-card-sub">Your Total Profit</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Total Profit</div>
+                    <div className="roi-p-card-v" style={{fontSize:'36px', marginBottom:'20px'}}>{fmt(results.year1GrossProfit)}</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Your Share</div>
+                    <div className="roi-p-card-v" style={{fontSize:'28px', color:'#d4af37', marginBottom:'24px'}}>{fmt(results.year1Profit)}</div>
                     <div className="roi-p-card-stat"><span>Total Revenue</span> <strong>{fmt(results.year1Revenue)}</strong></div>
                     <div className="roi-p-card-stat"><span>Investment</span> <strong>{fmt(results.totalInvestment)}</strong></div>
-                    <div className="roi-p-card-stat" style={{border:0}}><span>ROI</span> <strong>{Math.round(results.year1ROI)}%</strong></div>
+                    <div className="roi-p-card-stat" style={{border:0}}><span>Blended ROI</span> <strong>{Math.round(results.year1ROI)}%</strong></div>
                   </div>
                   <div className="roi-p-card y2">
                     <div className="roi-p-card-l">Year 2</div>
-                    <div className="roi-p-card-v">{fmt(results.year2Profit)}</div>
-                    <div className="roi-p-card-sub">Your Total Profit</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Total Profit</div>
+                    <div className="roi-p-card-v" style={{fontSize:'36px', marginBottom:'20px'}}>{fmt(results.year2GrossProfit)}</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Your Share</div>
+                    <div className="roi-p-card-v" style={{fontSize:'28px', color:'#d4af37', marginBottom:'24px'}}>{fmt(results.year2Profit)}</div>
                     <div className="roi-p-card-stat"><span>Total Revenue</span> <strong>{fmt(results.year2Revenue)}</strong></div>
                     <div className="roi-p-card-stat"><span>Investment</span> <strong>{fmt(results.totalInvestment)}</strong></div>
-                    <div className="roi-p-card-stat" style={{border:0}}><span>ROI</span> <strong style={{color:'var(--gold)'}}>{Math.round(results.year2ROI)}%</strong></div>
+                    <div className="roi-p-card-stat" style={{border:0}}><span>Blended ROI</span> <strong style={{color:'#d4af37'}}>{Math.round(results.year2ROI)}%</strong></div>
                   </div>
                   <div className="roi-p-card y3">
                     <div className="roi-p-card-l">Year 3</div>
-                    <div className="roi-p-card-v">{fmt(results.year3Profit)}</div>
-                    <div className="roi-p-card-sub">Your Total Profit</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Total Profit</div>
+                    <div className="roi-p-card-v" style={{fontSize:'36px', marginBottom:'20px'}}>{fmt(results.year3GrossProfit)}</div>
+                    <div className="roi-p-card-sub" style={{marginBottom:'8px'}}>Your Share</div>
+                    <div className="roi-p-card-v" style={{fontSize:'28px', color:'#F5D060', marginBottom:'24px'}}>{fmt(results.year3Profit)}</div>
                     <div className="roi-p-card-stat"><span>Total Revenue</span> <strong>{fmt(results.year3Revenue)}</strong></div>
                     <div className="roi-p-card-stat"><span>Investment</span> <strong>{fmt(results.totalInvestment)}</strong></div>
-                    <div className="roi-p-card-stat" style={{border:0}}><span>ROI</span> <strong style={{color:'var(--gold-l)'}}>{Math.round(results.year3ROI)}%</strong></div>
+                    <div className="roi-p-card-stat" style={{border:0}}><span>Blended ROI</span> <strong style={{color:'#F5D060'}}>{Math.round(results.year3ROI)}%</strong></div>
                   </div>
                 </div>
               </div>

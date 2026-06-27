@@ -388,10 +388,11 @@
   text-align: center;
   background: rgba(255, 255, 255, 0.015);
   border-radius: 12px;
-  padding: 24px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.02);
 }
 .roi-yc-l {
-  font-size: 12px;
+  font-size: 13px;
   color: #888;
   margin-bottom: 8px;
   text-transform: uppercase;
@@ -400,15 +401,41 @@
 }
 .roi-yc-v {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 700;
   color: #ffffff;
 }
-.roi-yc.y2 .roi-yc-v { color: #d4af37; }
-.roi-yc.y3 .roi-yc-v { color: #F5D060; }
+.roi-yc.y2 .roi-yc-v { color: #ffffff; }
+.roi-yc.y3 .roi-yc-v { color: #ffffff; }
+
+.roi-alert-box {
+  background: rgba(212, 175, 55, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 16px;
+  padding: 24px 30px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 50px;
+}
+.roi-alert-icon {
+  font-size: 24px;
+  margin-top: -2px;
+}
+.roi-alert-box p {
+  font-size: 15px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  margin: 0;
+}
+.roi-alert-box strong {
+  color: #d4af37;
+  display: inline-block;
+  margin-bottom: 4px;
+}
 
 .roi-portfolio {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .roi-portfolio .sl {
   color: #d4af37;
@@ -449,7 +476,7 @@
   background: rgba(255, 255, 255, 0.015);
   border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 20px;
-  padding: 40px;
+  padding: 40px 30px;
   text-align: center;
   border-top-width: 3px;
   border-top-style: solid;
@@ -459,12 +486,16 @@
 .roi-p-card.y3 { border-top-color: #F5D060; }
 
 .roi-p-card-l {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #888;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 16px;
+  border-radius: 100px;
 }
 .roi-p-card-v {
   font-family: 'Playfair Display', serif;

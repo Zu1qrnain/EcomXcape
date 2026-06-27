@@ -9,10 +9,10 @@ export const PLATFORMS_DATA = {
     roiMid: 0,
     startsQuarter: 1,
     fixedQuarters: [
-      { revenue: 1000, profit: 700, yourProfit: 350 },
-      { revenue: 5000, profit: 3000, yourProfit: 1500 },
-      { revenue: 12500, profit: 6500, yourProfit: 3250 },
-      { revenue: 25000, profit: 13000, yourProfit: 6500 },
+      { revenue: 1000, profit: 200, yourProfit: 100 },
+      { revenue: 5000, profit: 1000, yourProfit: 500 },
+      { revenue: 12500, profit: 2500, yourProfit: 1250 },
+      { revenue: 25000, profit: 5000, yourProfit: 2500 },
     ]
   },
   etsy: {
@@ -111,6 +111,10 @@ export function calculatePlatform(platformId, storeCount, capitalPerStore) {
   const year2Profit = year1Profit * 1.20;
   const year3Profit = year2Profit * 1.20;
 
+  const year1GrossProfit = annualGrossProfit;
+  const year2GrossProfit = year1GrossProfit * 1.20;
+  const year3GrossProfit = year2GrossProfit * 1.20;
+
   return {
     ...p,
     investment,
@@ -118,10 +122,13 @@ export function calculatePlatform(platformId, storeCount, capitalPerStore) {
     annualRevenue,
     annualGrossProfit,
     annualNetProfit,
-    roi: investment > 0 ? (annualNetProfit / investment) * 100 : 0,
+    roi: investment > 0 ? (annualGrossProfit / investment) * 100 : 0,
     year1Profit,
     year2Profit,
-    year3Profit
+    year3Profit,
+    year1GrossProfit,
+    year2GrossProfit,
+    year3GrossProfit
   };
 }
 
@@ -145,19 +152,23 @@ export function calculatePortfolio(selectedPlatformIds, storeCount, capitalInput
     }
   }
 
-  const blendedRoi = totalInvestment > 0 ? (annualNetProfit / totalInvestment) * 100 : 0;
+  const blendedRoi = totalInvestment > 0 ? (annualGrossProfit / totalInvestment) * 100 : 0;
 
   const year1Profit = annualNetProfit;
   const year2Profit = year1Profit * 1.20;
   const year3Profit = year2Profit * 1.20;
+
+  const year1GrossProfit = annualGrossProfit;
+  const year2GrossProfit = year1GrossProfit * 1.20;
+  const year3GrossProfit = year2GrossProfit * 1.20;
 
   const year1Revenue = annualRevenue;
   const year2Revenue = year1Revenue * 1.20;
   const year3Revenue = year2Revenue * 1.20;
 
   const year1ROI = blendedRoi;
-  const year2ROI = totalInvestment > 0 ? (year2Profit / totalInvestment) * 100 : 0;
-  const year3ROI = totalInvestment > 0 ? (year3Profit / totalInvestment) * 100 : 0;
+  const year2ROI = totalInvestment > 0 ? (year2GrossProfit / totalInvestment) * 100 : 0;
+  const year3ROI = totalInvestment > 0 ? (year3GrossProfit / totalInvestment) * 100 : 0;
 
   return {
     platforms,
@@ -169,6 +180,9 @@ export function calculatePortfolio(selectedPlatformIds, storeCount, capitalInput
     year1Profit,
     year2Profit,
     year3Profit,
+    year1GrossProfit,
+    year2GrossProfit,
+    year3GrossProfit,
     year1Revenue,
     year2Revenue,
     year3Revenue,

@@ -6,7 +6,8 @@ export default function Contact() {
     email: "",
     whatsapp: "",
     service: "",
-    message: ""
+    message: "",
+    company_website: "" // Honeypot field
   });
   const [status, setStatus] = useState("idle"); // idle, loading, success, error
 
@@ -16,6 +17,17 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // HONEYPOT CHECK
+    // If the hidden 'company_website' field is filled out, it's a bot.
+    if (formData.company_website !== "") {
+      // Fake a success so the bot thinks it worked and moves on
+      setStatus("success");
+      setFormData({ name: "", email: "", whatsapp: "", service: "", message: "", company_website: "" });
+      setTimeout(() => setStatus("idle"), 5000);
+      return; // Stop execution, don't send to SheetDB
+    }
+
     setStatus("loading");
     
     try {
@@ -41,7 +53,7 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", whatsapp: "", service: "", message: "" });
+        setFormData({ name: "", email: "", whatsapp: "", service: "", message: "", company_website: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
@@ -326,6 +338,18 @@ export default function Contact() {
 
             {/* Right Side: Glass Console */}
             <form className="contact-console" onSubmit={handleSubmit}>
+              
+              {/* HONEYPOT FIELD - Invisible to humans, traps automated bots */}
+              <input 
+                type="text" 
+                name="company_website"
+                value={formData.company_website}
+                onChange={handleChange}
+                style={{ opacity: 0, position: 'absolute', top: '-9999px', left: '-9999px' }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+
               <div className="form-row">
                 <div className="form-group">
                   <label className="form-label">Full Name</label>
