@@ -2,28 +2,19 @@ import React from 'react';
 
 const teamData = [
   {
-    name: 'Zulqrnain',
-    role: 'CEO & Founder',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&auto=format&fit=crop&q=80',
-    bio: 'Pioneered $10M+ in automated store revenue. Visionary behind EcomXcape\'s growth strategies.'
+    name: 'Mian GM',
+    fullName: 'Ghulam Muhammad Farooq',
+    role: 'Founder & Chairman',
+    companies: 'ecomXcape · Autopilot DS · Bridgrr',
+    image: '', // No photo yet
+    bio: 'Started with a single eBay seller account. Scaled to 300+ active stores across the UK, Australia and USA without running a single ad. Built Autopilot DS when the operation outgrew every existing tool. Built Bridgrr when WhatsApp groups started costing clients. Cambridge BBA graduate. Operator before founder, always.'
   },
   {
-    name: 'Sarah Jenkins',
-    role: 'Head of E-Commerce Growth',
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&auto=format&fit=crop&q=80',
-    bio: 'Ex-Amazon executive. Expert in scaling marketplace algorithms and maximizing ROI.'
-  },
-  {
-    name: 'Marcus Thorne',
-    role: 'Lead Sourcing & Logistics',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=800&auto=format&fit=crop&q=80',
-    bio: 'Master of global supply chains. Ensures high-margin, reliable product sourcing.'
-  },
-  {
-    name: 'Elena Rostova',
-    role: 'Director of Account Management',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&auto=format&fit=crop&q=80',
-    bio: 'Dedicated to client success. Keeps your store compliant and your profits flowing.'
+    name: 'Ibrahim Farooq',
+    role: 'Co-Founder',
+    companies: 'ecomXcape · Autopilot DS · Bridgrr',
+    image: '', // No photo yet
+    bio: 'The operational and client side of ecomXcape runs through Ibrahim. 8 years managing partner relationships, client onboarding and the financial infrastructure of the business. 200+ partners have collected monthly income. None of them have left. Ibrahim is the reason.'
   }
 ];
 
@@ -103,6 +94,20 @@ export default function Team() {
           transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
+        .team-image-placeholder {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background: #111;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-family: 'Playfair Display', serif;
+          font-size: 64px;
+          color: rgba(255,255,255,0.05);
+          font-weight: 800;
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
         .team-card::after {
           content: '';
           position: absolute;
@@ -137,6 +142,15 @@ export default function Team() {
           margin-bottom: 12px;
         }
 
+        .team-companies {
+          font-size: 11px;
+          font-weight: 700;
+          color: #a0a0a0;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 12px;
+        }
+
         .team-bio {
           font-size: 14px;
           color: rgba(255,255,255,0.8);
@@ -158,6 +172,11 @@ export default function Team() {
           transform: scale(1.05);
         }
 
+        .team-card:hover .team-image-placeholder {
+          transform: scale(1.05);
+          color: rgba(212, 175, 55, 0.1);
+        }
+
         .team-card:hover .team-info {
           transform: translateY(0);
         }
@@ -177,17 +196,24 @@ export default function Team() {
 
       <section id="team" className="team-section">
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div className="sl">Executive Roster</div>
-          <h2 className="sh">The Experts Behind<br/>Your Passive Income.</h2>
-          <p className="ss">We aren't just an agency; we are a collective of ex-marketplace executives, logistics masters, and scaling experts dedicated to your success.</p>
+          <div className="sl">THE FOUNDERS</div>
+          <h2 className="sh">Built by Operators. Not Marketers.</h2>
+          <p className="ss">Two brothers. One started selling on eBay from a bedroom. The other built the client and operations side that kept everything from falling apart. Combined, they have spent the last 8 years building what ecomXcape is today.</p>
           
           <div className="team-grid">
             {teamData.map((member, index) => (
               <div key={index} className="team-card">
-                <img src={member.image} alt={member.name} className="team-image" />
+                {member.image ? (
+                  <img src={member.image} alt={member.name} className="team-image" />
+                ) : (
+                  <div className="team-image-placeholder">
+                    {member.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                )}
                 <div className="team-info">
                   <div className="team-name">{member.name}</div>
                   <div className="team-role">{member.role}</div>
+                  <div className="team-companies">{member.companies}</div>
                   <div className="team-bio">{member.bio}</div>
                 </div>
               </div>

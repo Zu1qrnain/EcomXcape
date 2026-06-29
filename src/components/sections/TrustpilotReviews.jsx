@@ -2,25 +2,28 @@ import React from "react";
 
 const reviews = [
   {
-    name: "Michael R.",
-    location: "Texas, USA",
-    platform: "eBay",
-    initials: "MR",
-    text: `"EcomXcape completely changed my financial life. My eBay store is generating $4,200/m consistently and I haven't touched it in months."`
+    name: "[B2B CEO Name]",
+    location: "UK",
+    platform: "eBay & Amazon",
+    duration: "Active 2+ Years",
+    initials: "B2B",
+    text: `"[Placeholder] Real quote from a B2B CEO partner. Minimum one B2B CEO quote required."`
   },
   {
-    name: "Sarah L.",
-    location: "California, USA",
-    platform: "Amazon",
-    initials: "SL",
-    text: `"The FBA Genius team is incredible. They set up my Amazon store and I'm now at $8,500/m passive income. Zero upfront fee was the deal maker."`
+    name: "[Individual Partner]",
+    location: "USA",
+    platform: "TikTok Shop",
+    duration: "Active 6 Months",
+    initials: "B2C",
+    text: `"[Placeholder] Real quote from a US-based individual partner required."`
   },
   {
-    name: "David J.",
-    location: "Florida, USA",
-    platform: "Walmart",
-    initials: "DJ",
-    text: `"Walmart Elite Club promised a million dollar store and they're delivering. 14 months in, my store is at $65K/m revenue with 32% ROI."`
+    name: "[Partner Name]",
+    location: "Australia",
+    platform: "Etsy",
+    duration: "Active 1 Year",
+    initials: "AU",
+    text: `"[Placeholder] Real quote from an Australia-based partner required."`
   }
 ];
 
@@ -144,55 +147,25 @@ export default function TrustpilotReviews() {
           width: 100%;
         }
 
-        /* Animated Gradient Card Wrapper */
+        /* Clean Card Wrapper */
         .animated-border-wrapper {
-          position: relative;
           border-radius: 20px;
-          padding: 1px; /* The border width */
-          overflow: hidden;
-          background: rgba(255,255,255,0.05); /* Fallback */
-          box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-          transition: transform 0.4s ease;
+          padding: 1px;
+          background: rgba(255,255,255,0.05);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+          transition: transform 0.4s ease, background-color 0.4s ease;
+          height: 100%;
         }
 
         .animated-border-wrapper:hover {
           transform: translateY(-10px);
-        }
-
-        /* The rotating conic gradient */
-        .animated-border-wrapper::before {
-          content: '';
-          position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
-          background: conic-gradient(
-            transparent, 
-            transparent, 
-            transparent, 
-            rgba(212, 175, 55, 1)
-          );
-          animation: rotate-border 4s linear infinite;
-          z-index: 0;
-        }
-
-        /* Stagger animations so they don't look uniform */
-        .reviews-grid > div:nth-child(1) .animated-border-wrapper::before { animation-delay: 0s; }
-        .reviews-grid > div:nth-child(2) .animated-border-wrapper::before { animation-delay: -1.3s; }
-        .reviews-grid > div:nth-child(3) .animated-border-wrapper::before { animation-delay: -2.6s; }
-
-        @keyframes rotate-border {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          background: rgba(212, 175, 55, 0.4);
         }
 
         /* Inner Glass Card */
         .review-inner-card {
-          position: relative;
-          z-index: 1;
           background: #161616;
-          border-radius: 19px; /* Slightly less than wrapper */
+          border-radius: 19px;
           padding: 40px;
           height: 100%;
           display: flex;
@@ -293,25 +266,9 @@ export default function TrustpilotReviews() {
 
       <section id="testimonials" className="reviews-cinematic">
         <div className="si">
-          <div className="sl">Client Results</div>
-          <h2 className="sh">Real Results from Real Clients</h2>
-          
-          <div className="trust-anchor">
-            <div className="anchor-col">
-              <div className="tp-logo-text">Trustpilot</div>
-              <div className="tp-star-row">★★★★★</div>
-            </div>
-            <div className="anchor-divider"></div>
-            <div className="anchor-col">
-              <div className="anchor-score">4.9</div>
-              <div className="anchor-sub">Based on 100+ reviews</div>
-            </div>
-            <div className="anchor-divider"></div>
-            <div className="anchor-col">
-              <div className="anchor-badge">🏆</div>
-              <div className="anchor-sub">Excellent</div>
-            </div>
-          </div>
+          <div className="sl">PARTNER RESULTS</div>
+          <h2 className="sh">300 Stores. 200 Partners. The Numbers Speak.</h2>
+          <p className="ss" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 80px auto', fontSize: '18px', color: '#a0a0a0', lineHeight: 1.6 }}>Every figure below is from a real store, on a real platform, run by our team. We share live Seller Hub dashboards on every strategy call — no mock-ups, no projections presented as proof.</p>
 
           <div className="reviews-grid">
             {reviews.map((rev, i) => (
@@ -327,6 +284,7 @@ export default function TrustpilotReviews() {
                       <div className="author-meta">
                         <div className="author-name">{rev.name}</div>
                         <div className="author-loc">{rev.location}</div>
+                        <div className="author-loc" style={{ marginTop: '2px', color: '#d4af37' }}>{rev.duration}</div>
                       </div>
                       <div className="platform-tag">{rev.platform}</div>
                     </div>
@@ -334,6 +292,33 @@ export default function TrustpilotReviews() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Live Store Proof Section */}
+          <div className="proof-section" style={{ marginTop: '120px', width: '100%' }}>
+            <h3 className="sh" style={{ fontSize: 'clamp(28px, 4vw, 40px)', marginBottom: '16px', textAlign: 'center' }}>Live eBay Seller Hub Dashboards</h3>
+            <p className="ss" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 60px auto', fontSize: '18px', color: '#a0a0a0', lineHeight: 1.6 }}>These are unedited screenshots from active partner stores. Updated monthly.</p>
+            
+            <div className="proof-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '30px', width: '100%' }}>
+              {[1, 2, 3].map((_, idx) => (
+                <div key={idx} style={{ 
+                  background: '#1a1a1a', 
+                  border: '1px dashed rgba(212, 175, 55, 0.4)', 
+                  borderRadius: '16px', 
+                  aspectRatio: '16/9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#666',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '1px'
+                }}>
+                  Dashboard Screenshot {idx+1}
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>

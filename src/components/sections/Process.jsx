@@ -3,23 +3,23 @@ import React, { useState } from "react";
 const processSteps = [
   {
     id: '01',
-    title: 'Book a Free Call',
-    desc: 'We analyze your goals and recommend the best platform. Zero pressure, zero obligation.'
+    title: 'We Talk',
+    desc: 'Book a strategy call. We understand your situation — capital available, how many accounts, which platforms interest you. No pressure. No pitch. We tell you what the numbers look like for your specific setup.'
   },
   {
     id: '02',
-    title: 'We Set Up & Run',
-    desc: 'Our experts build your store, source products, create listings, and manage everything 24/7.'
+    title: 'We Build',
+    desc: 'Our 40-person team sets up your store infrastructure — accounts, listings, supplier relationships, automation. eBay goes live first. Additional platforms are activated as your portfolio grows.'
   },
   {
     id: '03',
-    title: 'You Collect Profits',
-    desc: 'Watch your store generate passive income every month. 100% hands-free for you.'
+    title: 'Stores Go Live',
+    desc: 'Orders start coming in within the first week on eBay. Our team handles every order, every customer message, every return. You receive weekly performance reports. You never touch operations.'
   },
   {
     id: '04',
-    title: 'Scale & Grow',
-    desc: 'We optimize and scale winning products. Your income grows month over month.'
+    title: 'You Collect 50%',
+    desc: 'Every month, you receive 50% of net profit across every active store. As platforms are added and stores mature, that number compounds. Most partners are across 3+ platforms by the end of year one.'
   }
 ];
 
@@ -268,9 +268,9 @@ export default function Process() {
 
       <section id="process" className="process-pipeline">
         <div className="si">
-          <div className="sl">How It Works</div>
-          <h2 className="sh">From Zero to Passive Income<br/>in 4 Simple Steps</h2>
-          <p className="ss">You invest, we do the work, you earn. Hover over the timeline to see how we automate your entire business.</p>
+          <div className="sl">HOW IT WORKS</div>
+          <h2 className="sh">From First Call to First Payment.</h2>
+          <p className="ss">The model is straightforward. Most agencies complicate it deliberately. We don't.</p>
           
           <div className="pipeline-container" onMouseLeave={() => setActiveIndex(0)}>
             {/* The Tracks */}
@@ -303,7 +303,7 @@ export default function Process() {
           <div className={`pipeline-cta-wrapper ${activeIndex === processSteps.length - 1 ? 'ready' : ''}`}>
             <div className="cta-connector"></div>
             <a href="#qualify" className="btn-pipeline">
-              <span>Book Free Consultation</span>
+              <span>Book a Strategy Call</span>
               <span>→</span>
             </a>
           </div>

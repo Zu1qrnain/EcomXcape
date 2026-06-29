@@ -191,25 +191,25 @@ export default function CTA() {
 
           {/* Foreground Content */}
           <div className="cta-content">
-            <h2 className="cta-header">Ready to Start Earning <em>Passively?</em></h2>
+            <h2 className="cta-header">You've Seen the Numbers.<br/><em>Now Let's Build It.</em></h2>
             <p className="cta-desc">
-              Join 500+ clients who wake up to profit notifications every day. Your eCommerce store, on autopilot, starting today.
+              300+ partners are already collecting their share every month — across eBay, Amazon, Etsy, TikTok Shop, OnBuy and Walmart. We build the stores. We run the operations. We scale every platform. You collect 50% of everything the stores generate, without touching a single order.
             </p>
 
             <div className="cta-actions">
-              <a href="#qualify" className="btn-qualify">
-                💬 Qualify Now
+              <a href="#contact" className="btn-qualify">
+                Book a Strategy Call &rarr;
               </a>
               <a href="#contact" className="btn-email">
-                ✉️ Send Us an Email
+                DM us — type COMPANY
               </a>
             </div>
 
             <div className="cta-badges">
-              <span className="trust-badge">✓ 500+ Happy Clients</span>
-              <span className="trust-badge">✓ Since 2019</span>
-              <span className="trust-badge">✓ 98% Satisfaction</span>
-              <span className="trust-badge">✓ 1-Hour Response</span>
+              <span className="trust-badge">✓ 300+ Active Stores</span>
+              <span className="trust-badge">✓ £100M+ Sold Across 3 Countries</span>
+              <span className="trust-badge">✓ 200+ Partners Earning Monthly</span>
+              <span className="trust-badge">✓ 8 Years. Built Without Ads.</span>
             </div>
           </div>
         </div>

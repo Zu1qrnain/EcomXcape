@@ -1,137 +1,54 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
-const platformsData = [
+const companiesData = [
   {
-    id: 'fba',
-    specialty: 'Amazon Specialists',
-    brand: 'FBA Genius',
-    desc: '100% Done For You FBA Stores. $3K–$10K/m Hands-Free. No Results, No Money.',
-    statVal: '500+',
-    statLabel: 'Successful Case Studies',
-    link: '#fba',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg'
+    tag: 'ECOMMERCE PARTNERSHIP',
+    name: 'ecomXcape',
+    tagline: 'Your eCom Partner. Your Financial Freedom.',
+    body: 'Full-service eCommerce partnership agency. We build, run and scale stores across six platforms. You invest, we operate, you collect 50% of net profit every month. 300+ active stores. 200+ partners. 8 years. No ads.',
+    stat: '300+ Active Stores',
+    ctaText: 'See How It Works →',
+    link: '#process'
   },
   {
-    id: 'momentum',
-    specialty: 'eBay Specialists',
-    brand: 'Momentum Makers',
-    desc: 'Helped 250+ People Build Real 2nd Income Streams. Real eCommerce Business Models.',
-    statVal: '250+',
-    statLabel: 'People Building 2nd Income',
-    link: '#momentum',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg'
+    tag: 'ECOMMERCE SAAS',
+    name: 'Autopilot DS',
+    tagline: 'Built by Dropshippers. Perfected for Scale.',
+    body: 'We built Autopilot DS because ecomXcape outgrew every tool available. At 50 stores, manual operations were killing us — one person could barely manage 2 stores. After Autopilot DS, one person runs 5. The software that runs our own operation is now available to other operators.',
+    stat: 'Beta Waitlist Open',
+    ctaText: 'Join the Waitlist →',
+    link: '#contact'
   },
   {
-    id: 'walmart',
-    specialty: 'Walmart Specialists',
-    brand: 'Walmart Elite Club',
-    desc: 'Guaranteed $1M Store in 18–24 Months with 30–35% Consistent ROI.',
-    statVal: '$1M+',
-    statLabel: 'Store Value Built',
-    link: '#walmart',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg'
-  },
-  {
-    id: 'etsy',
-    specialty: 'Etsy Specialists',
-    brand: 'Etsy Success Partners',
-    desc: 'Scaling Etsy with Profitable Automations. 40–90% ROI for 100+ Investors Monthly.',
-    statVal: '90%',
-    statLabel: 'ROI Generated',
-    link: '#etsy',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg'
-  },
-  {
-    id: 'tiktok',
-    specialty: 'TikTok Specialists',
-    brand: 'TikShopz Automations',
-    desc: '300+ Satisfied Clients. 100% Success Ratio. $5K–$10K/m Passive Income.',
-    statVal: '300+',
-    statLabel: 'Satisfied Clients',
-    link: '#tiktok',
-    logo: 'https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg'
-  },
-  {
-    id: 'bayboost',
-    specialty: 'eBay Specialists',
-    brand: 'BayBoost Agency',
-    desc: '$3K–$5K/m Net Profit Without Marketing Costs. 250+ Profitable Stores Built.',
-    statVal: '250+',
-    statLabel: 'Profitable Stores Built',
-    link: '#ebay',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg'
-  },
-  {
-    id: 'rapidrack',
-    specialty: '3PL & Fulfillment',
-    brand: 'Rapid Rack Logistics',
-    desc: 'The 3PL Built for Sellers by Sellers. Cut Costs 30%, 2X Delivery Speed.',
-    statVal: '30%',
-    statLabel: 'Cost Reduction Guaranteed',
-    link: '#rapidrack',
-    logoText: '🚚'
+    tag: 'BUSINESS COMMUNICATION',
+    name: 'Bridgrr',
+    tagline: 'The comms layer nobody built. Until now.',
+    body: 'WhatsApp groups were costing us clients. Team members could see client numbers. Side deals were happening. Bridgrr creates a communication layer between your team and your clients — no visible contact details, no poaching, full conversation visibility for the owner. Built to solve a real problem.',
+    stat: 'MVP Complete — Founding Pricing Available',
+    ctaText: 'Learn More →',
+    link: '#contact'
   }
 ];
 
-// Reusable 3D Tilt Card Component
-const TiltCard = ({ item }) => {
-  const cardRef = useRef(null);
-  const [style, setStyle] = useState({});
-
-  const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Calculate rotation (-10deg to 10deg)
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -15;
-    const rotateY = ((x - centerX) / centerX) * 15;
-
-    setStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
-      boxShadow: `${(centerX - x) / 10}px ${(centerY - y) / 10 + 20}px 30px rgba(212, 175, 55, 0.2)`
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setStyle({
-      transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
-      boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-    });
-  };
-
+// Clean Card Component
+const CleanCard = ({ item }) => {
   return (
     <a 
       href={item.link} 
       className="holo-card"
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={style}
     >
-      {/* Massive Watermark */}
-      <div className="watermark">
-        {item.logo ? (
-          <img src={item.logo} alt="logo watermark" />
-        ) : (
-          <span>{item.logoText}</span>
-        )}
-      </div>
-
       <div className="hc-content">
         <div className="hc-top">
-          <span className="hc-specialty">{item.specialty}</span>
+          <span className="hc-specialty">{item.tag}</span>
           <span className="hc-arrow">↗</span>
         </div>
-        <h3 className="hc-brand">{item.brand}</h3>
-        <p className="hc-desc">{item.desc}</p>
+        <h3 className="hc-brand">{item.name}</h3>
+        <h4 style={{ color: '#d4af37', fontSize: '18px', marginBottom: '16px', fontFamily: '"Playfair Display", serif', fontWeight: 700 }}>{item.tagline}</h4>
+        <p className="hc-desc">{item.body}</p>
         
-        <div className="hc-footer">
-          <div className="hc-stat-val">{item.statVal}</div>
-          <div className="hc-stat-label">{item.statLabel}</div>
+        <div className="hc-footer" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div className="hc-stat-label" style={{ color: '#ffffff', fontWeight: 700, fontSize: '16px' }}>{item.stat}</div>
+          <div style={{ color: '#d4af37', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px' }}>{item.ctaText}</div>
         </div>
       </div>
     </a>
@@ -223,66 +140,29 @@ export default function Platforms() {
 
         /* The Card */
         .holo-card {
-          position: relative;
           background: rgba(26, 26, 26, 0.6);
           border: 1px solid rgba(255, 255, 255, 0.05);
           border-radius: 24px;
           padding: 40px 32px;
-          overflow: hidden;
           text-decoration: none;
           display: flex;
           flex-direction: column;
-          transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border 0.3s;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-          backdrop-filter: blur(10px);
+          transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.3);
           min-height: 380px;
-          transform-style: preserve-3d;
         }
 
         .holo-card:hover {
           border-color: rgba(212, 175, 55, 0.4);
+          transform: translateY(-5px);
+          box-shadow: 0 15px 35px rgba(212, 175, 55, 0.1);
         }
 
-        /* The Watermark Logo */
-        .watermark {
-          position: absolute;
-          top: 50%; left: 50%;
-          transform: translate(-50%, -50%) translateZ(-50px);
-          width: 80%;
-          height: 80%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          opacity: 0.03; /* Extremely subtle */
-          pointer-events: none;
-          z-index: 1;
-          transition: opacity 0.3s;
-        }
-
-        .watermark img {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: contain;
-          filter: brightness(0) invert(1);
-        }
-
-        .watermark span {
-          font-size: 180px;
-          opacity: 0.5;
-        }
-
-        .holo-card:hover .watermark {
-          opacity: 0.1; /* Glows up on hover */
-        }
-
-        /* Card Content (Raised in 3D) */
+        /* Card Content */
         .hc-content {
-          position: relative;
-          z-index: 2;
           display: flex;
           flex-direction: column;
           height: 100%;
-          transform: translateZ(30px); /* Lifts content above background */
         }
 
         .hc-top {
@@ -359,22 +239,20 @@ export default function Platforms() {
         @media (max-width: 768px) {
           .platforms-holographic { padding: 80px 20px; }
           .holo-grid { grid-template-columns: 1fr; gap: 24px; }
-          .holo-card { min-height: auto; padding: 32px 24px; transform: none !important; box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; }
-          .hc-content { transform: none; }
-          .watermark { transform: translate(-50%, -50%); }
+          .holo-card { min-height: auto; padding: 32px 24px; }
         }
       `}</style>
 
       <section id="brands" className="platforms-holographic">
         <div className="visual-breaker"></div>
         <div className="si-plat">
-          <div className="sl">Choose Your Empire</div>
-          <h2 className="sh">7 Expert Teams, Each Laser-Focused<br/>on One Platform</h2>
-          <p className="ss">Every brand is a dedicated team of specialists — not generalists. We build, scale, and automate your chosen marketplace.</p>
+          <div className="sl">THE ECOSYSTEM</div>
+          <h2 className="sh">Three Companies. One Operator.</h2>
+          <p className="ss">Every company in this ecosystem was built because GM ran into a problem nobody had solved. Not because of a market opportunity. Because of operational pain.</p>
           
           <div className="holo-grid">
-            {platformsData.map((item, index) => (
-              <TiltCard key={index} item={item} />
+            {companiesData.map((item, index) => (
+              <CleanCard key={index} item={item} />
             ))}
           </div>
         </div>

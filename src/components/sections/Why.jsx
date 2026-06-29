@@ -1,47 +1,39 @@
-import React, { useRef } from "react";
+import React from "react";
 
 const benefits = [
   {
-    icon: '🔥',
-    title: 'Performance-Based Model',
-    desc: "We share in your profits. Our success is directly tied to yours. We're 100% motivated to maximize your store."
+    icon: '🤝',
+    title: 'Profit Share. Not Retainer.',
+    desc: 'We take 50% of net profit. No setup fees, no monthly retainers, no hidden costs. If your stores don\'t generate profit, we don\'t get paid. Our incentive is identical to yours.'
   },
   {
-    icon: '⚡',
-    title: '100% Hands-Free Operation',
-    desc: 'You never touch anything. Our dedicated team handles every aspect of your store 24/7 — listings, orders, customers.'
+    icon: '👥',
+    title: 'A 40-Person Team Running Your Operation.',
+    desc: 'Not a freelancer. Not a virtual assistant. A full 40-person team in Multan with dedicated roles across sourcing, listing, operations, customer service and account management. This is an agency with infrastructure.'
+  },
+  {
+    icon: '💻',
+    title: 'We Built Our Own Software Because Nothing Else Scaled.',
+    desc: 'At scale, every off-the-shelf tool broke. AutoDS, ZIK Analytics — none of it held at 100+ stores. So we built Autopilot DS. One operator now manages 5 stores instead of 2. This is operational depth most agencies can\'t touch.'
+  },
+  {
+    icon: '📈',
+    title: 'Real Stores. Real Dashboards. Real Numbers.',
+    desc: 'We show you live eBay Seller Hub screenshots from active stores before you sign anything. No mock-ups. No projections presented as proof. Actual dashboards from actual partners who are active right now.'
   },
   {
     icon: '📊',
-    title: 'Proven Track Record Since 2019',
-    desc: '500+ clients profiting, documented results across 6 platforms, and 98% satisfaction rate.'
+    title: 'Weekly Reporting. Full Visibility.',
+    desc: 'Every partner receives a weekly performance report covering revenue, profit, orders, and any operational notes. You see exactly what your stores are doing, every week, without having to ask.'
   },
   {
-    icon: '📱',
-    title: 'Dedicated Account Manager',
-    desc: 'Every client gets a dedicated manager available 24/7. Weekly performance reports. Full transparency.'
-  },
-  {
-    icon: '🛡️',
-    title: 'We Take 99% of the Risk',
-    desc: 'Low setup fee and profit-share model means your risk is minimal. We do the work — you reap the rewards.'
+    icon: '🏢',
+    title: 'B2B Company Partnerships Are Our Primary Model.',
+    desc: 'Most agencies only work with individual investors. ecomXcape works with company CEOs who use their employees\' existing accounts to open stores at scale. One CEO. Multiple accounts. One investment. Revenue across every store.'
   }
 ];
 
 export default function Why() {
-  const gridRef = useRef(null);
-
-  const handleMouseMove = (e) => {
-    if (!gridRef.current) return;
-    for (const card of gridRef.current.getElementsByClassName("bento-card")) {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
-  };
-
   return (
     <>
       <style>{`
@@ -102,61 +94,20 @@ export default function Why() {
           gap: 20px;
         }
 
-        /* Spotlight Glass Cards */
+        /* Clean Cards */
         .bento-card {
-          background-color: rgba(255, 255, 255, 0.02);
+          background-color: rgba(255, 255, 255, 0.03);
+          border: 1px solid rgba(255, 255, 255, 0.08);
           border-radius: 24px;
-          position: relative;
           display: flex;
           flex-direction: column;
           padding: 40px;
-          overflow: hidden;
+          transition: border-color 0.3s, transform 0.3s;
         }
 
-        .bento-card::before,
-        .bento-card::after {
-          content: "";
-          position: absolute;
-          border-radius: inherit;
-          opacity: 0;
-          transition: opacity 500ms ease;
-          pointer-events: none;
-        }
-
-        /* Glow effect underneath card */
-        .bento-card::before {
-          background: radial-gradient(
-            800px circle at var(--mouse-x) var(--mouse-y),
-            rgba(212, 175, 55, 0.06),
-            transparent 40%
-          );
-          top: 0; left: 0; right: 0; bottom: 0;
-          z-index: 1;
-        }
-
-        /* Glowing Border effect */
-        .bento-card::after {
-          background: radial-gradient(
-            600px circle at var(--mouse-x) var(--mouse-y),
-            rgba(212, 175, 55, 0.4),
-            transparent 40%
-          );
-          top: -1px; left: -1px; right: -1px; bottom: -1px;
-          z-index: 0;
-        }
-
-        /* Add black inside to mask border glow */
-        .bento-inner {
-          background-color: #1a1a1a;
-          position: absolute;
-          inset: 1px;
-          border-radius: 23px;
-          z-index: 2;
-        }
-
-        .bento-grid:hover .bento-card::before,
-        .bento-grid:hover .bento-card::after {
-          opacity: 1;
+        .bento-grid:hover .bento-card:hover {
+          border-color: rgba(212, 175, 55, 0.4);
+          transform: translateY(-5px);
         }
 
         .bento-content {
@@ -168,23 +119,19 @@ export default function Why() {
         }
 
         /* Specific Card Spans */
-        .card-stats {
-          grid-column: span 2;
-          grid-row: span 2;
-          padding: 50px;
-        }
-
-        .card-wide {
-          grid-column: span 2;
+        .card-super-wide {
+          grid-column: span 3;
+          padding: 40px;
         }
 
         /* Stats Hero Card Styling */
         .stats-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
+          grid-template-columns: repeat(6, 1fr);
+          gap: 20px;
           height: 100%;
-          align-content: center;
+          align-items: center;
+          text-align: center;
         }
 
         .stat-block {
@@ -194,7 +141,7 @@ export default function Why() {
 
         .stat-num {
           font-family: 'Playfair Display', serif;
-          font-size: clamp(48px, 6vw, 72px);
+          font-size: clamp(32px, 4vw, 48px);
           font-weight: 800;
           color: #ffffff;
           line-height: 1;
@@ -244,56 +191,29 @@ export default function Why() {
           .bento-grid {
             grid-template-columns: 1fr;
           }
-          .card-stats, .card-wide {
+          .card-super-wide {
             grid-column: span 1;
-            grid-row: span 1;
           }
           .stats-grid {
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
           }
           .why-premium { padding: 80px 20px; }
           .bento-card { padding: 30px; }
-          .card-stats { padding: 40px 30px; }
         }
       `}</style>
 
       <section id="why" className="why-premium">
         <div className="si">
-          <div className="sl">Why Choose Us</div>
-          <h2 className="sh">Why 500+ Clients Trust Us<br/>With Their Business</h2>
-          <p className="ss">We don't just manage stores — we build lasting passive income machines.</p>
+          <div className="sl">WHY ECOMXCAPE</div>
+          <h2 className="sh">8 Years. 300 Stores. We Have Never Run an Ad.</h2>
+          <p className="ss">Every partner we have ever taken on came through word of mouth or content. Because results speak. Here is what makes this operation different from everything else in this space.</p>
           
-          <div className="bento-grid" ref={gridRef} onMouseMove={handleMouseMove}>
+          <div className="bento-grid">
             
-            {/* The Massive Stats Card */}
-            <div className="bento-card card-stats">
-              <div className="bento-inner"></div>
-              <div className="bento-content">
-                <div className="stats-grid">
-                  <div className="stat-block">
-                    <span className="stat-num">98%</span>
-                    <span className="stat-label">Client Satisfaction</span>
-                  </div>
-                  <div className="stat-block">
-                    <span className="stat-num">500+</span>
-                    <span className="stat-label">Active Clients</span>
-                  </div>
-                  <div className="stat-block">
-                    <span className="stat-num">$100K</span>
-                    <span className="stat-label">Max Monthly Earned</span>
-                  </div>
-                  <div className="stat-block">
-                    <span className="stat-num">2019</span>
-                    <span className="stat-label">Founded & Proven</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Benefit Cards */}
             {benefits.map((b, i) => (
-              <div key={i} className={`bento-card ${i === 4 ? 'card-wide' : ''}`}>
-                <div className="bento-inner"></div>
+              <div key={i} className="bento-card">
                 <div className="bento-content">
                   <div className="benefit-icon-wrapper">{b.icon}</div>
                   <h4 className="benefit-title">{b.title}</h4>
@@ -301,6 +221,38 @@ export default function Why() {
                 </div>
               </div>
             ))}
+
+            {/* The Massive Stats Card */}
+            <div className="bento-card card-super-wide">
+              <div className="bento-content">
+                <div className="stats-grid">
+                  <div className="stat-block">
+                    <span className="stat-num">300+</span>
+                    <span className="stat-label">Active Stores</span>
+                  </div>
+                  <div className="stat-block">
+                    <span className="stat-num">£100M+</span>
+                    <span className="stat-label">Sold</span>
+                  </div>
+                  <div className="stat-block">
+                    <span className="stat-num">200+</span>
+                    <span className="stat-label">Partners</span>
+                  </div>
+                  <div className="stat-block">
+                    <span className="stat-num">8 Years</span>
+                    <span className="stat-label">Operating</span>
+                  </div>
+                  <div className="stat-block">
+                    <span className="stat-num">40</span>
+                    <span className="stat-label">Person Team</span>
+                  </div>
+                  <div className="stat-block">
+                    <span className="stat-num">3</span>
+                    <span className="stat-label">Companies Built</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>

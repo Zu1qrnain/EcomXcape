@@ -5,7 +5,8 @@ export default function Contact() {
     name: "",
     email: "",
     whatsapp: "",
-    service: "",
+    partnerType: "",
+    accountCount: "",
     message: "",
     company_website: "" // Honeypot field
   });
@@ -23,7 +24,7 @@ export default function Contact() {
     if (formData.company_website !== "") {
       // Fake a success so the bot thinks it worked and moves on
       setStatus("success");
-      setFormData({ name: "", email: "", whatsapp: "", service: "", message: "", company_website: "" });
+      setFormData({ name: "", email: "", whatsapp: "", partnerType: "", accountCount: "", message: "", company_website: "" });
       setTimeout(() => setStatus("idle"), 5000);
       return; // Stop execution, don't send to SheetDB
     }
@@ -43,7 +44,8 @@ export default function Contact() {
               "Full Name": formData.name,
               "Email": formData.email,
               "WhatsApp": formData.whatsapp,
-              "Service": formData.service,
+              "Partner Type": formData.partnerType,
+              "Accounts": formData.accountCount,
               "Message": formData.message,
               "Date": new Date().toLocaleString()
             }
@@ -53,7 +55,7 @@ export default function Contact() {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", whatsapp: "", service: "", message: "", company_website: "" });
+        setFormData({ name: "", email: "", whatsapp: "", partnerType: "", accountCount: "", message: "", company_website: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
@@ -321,10 +323,10 @@ export default function Contact() {
             
             {/* Left Side: Pitch */}
             <div className="contact-pitch">
-              <div className="sl">Get In Touch</div>
-              <h2 className="sh">Let's Build Your Passive Income</h2>
+              <div className="sl">GET IN TOUCH</div>
+              <h2 className="sh">Start With a Conversation.</h2>
               <p className="ss">
-                Fill out the form and our team will reach out within 1 hour. We are available 7 days a week to answer your questions and start building your store.
+                No pitch decks. No high-pressure sales. You tell us your situation — capital available, number of accounts, what you're trying to build. We tell you what the numbers look like for your specific setup. If it makes sense, we move forward. If it doesn't, we tell you that too.
               </p>
 
               <a href="mailto:Contact@ecomxcape.com" className="contact-info-badge">
@@ -390,30 +392,43 @@ export default function Contact() {
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label">Interested In</label>
-                <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="glass-input" 
-                  required
-                >
-                  <option value="">Select a service...</option>
-                  <option value="amazon">Amazon FBA Automation</option>
-                  <option value="ebay">eBay Store Automation</option>
-                  <option value="walmart">Walmart Elite Club</option>
-                </select>
+              <div className="form-row">
+                <div className="form-group">
+                  <label className="form-label">I am a...</label>
+                  <select 
+                    name="partnerType"
+                    value={formData.partnerType}
+                    onChange={handleChange}
+                    className="glass-input" 
+                    required
+                  >
+                    <option value="">Select...</option>
+                    <option value="B2B">Company CEO (B2B Partnership)</option>
+                    <option value="B2C">Individual Investor (B2C Partnership)</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label className="form-label">Number of accounts / employees</label>
+                  <input 
+                    type="number" 
+                    name="accountCount"
+                    value={formData.accountCount}
+                    onChange={handleChange}
+                    className="glass-input" 
+                    placeholder="e.g. 5" 
+                    required 
+                  />
+                </div>
               </div>
 
               <div className="form-group">
-                <label className="form-label">Message (Optional)</label>
+                <label className="form-label">Tell us about your situation (Optional)</label>
                 <textarea 
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   className="glass-input" 
-                  placeholder="Tell us about your goals..."
+                  placeholder="Capital available, platforms you're interested in, any questions..."
                 ></textarea>
               </div>
 
@@ -422,7 +437,7 @@ export default function Contact() {
                 className="btn-submit"
                 disabled={status === "loading"}
               >
-                {status === "loading" ? "⏳ Sending..." : "🚀 Send My Request"}
+                {status === "loading" ? "⏳ Sending..." : "Send My Request →"}
               </button>
 
               {status === "success" && (

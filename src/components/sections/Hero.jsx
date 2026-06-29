@@ -394,31 +394,19 @@ export default function Hero() {
         <div className="hero-grid-wrapper">
           <div className="hero-content-area">
             <div className="hero-avatar-badge">
-              <div className="avatar-group">
-                <div className="avatar-pic" style={{backgroundImage: 'url(https://i.pravatar.cc/100?img=11)', zIndex: 5}}></div>
-                <div className="avatar-pic" style={{backgroundImage: 'url(https://i.pravatar.cc/100?img=32)', zIndex: 4}}></div>
-                <div className="avatar-pic" style={{backgroundImage: 'url(https://i.pravatar.cc/100?img=44)', zIndex: 3}}></div>
-                <div className="avatar-pic" style={{backgroundImage: 'url(https://i.pravatar.cc/100?img=60)', zIndex: 2}}></div>
-                <div className="avatar-more">+500</div>
-              </div>
+              <span style={{ color: '#d4af37', fontWeight: 800, fontSize: '16px' }}>✓</span>
               <div className="avatar-text">
-                Trusted by <strong>successful store owners</strong>
+                <strong>300+ Stores. 3 Countries. 8 Years. No Ads.</strong>
               </div>
             </div>
-            <h1>We Run Your Store.<br/><em>You Keep</em> the Profits.</h1>
-            <p className="sub">500+ clients earning $3,000–$10,000/month passively since 2019. We handle everything — product research, listings, orders, and customer service — 100% done for you.</p>
+            <h1>Your Capital.<br/><em>Our Operation.</em><br/><span style={{fontSize: 'clamp(28px, 4vw, 48px)'}}>50% of Every Pound Earned — Yours.</span></h1>
+            <p className="sub">We built 300+ stores across the UK, Australia and USA from a single eBay account. Today we partner with individuals and companies who want real eCommerce income — without touching a single order. You bring the capital. We build, run and scale everything. You collect half of every pound the stores generate, every month.</p>
             <div className="btns">
-              <a href="https://wa.me/19342022517?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20call!" target="_blank" rel="noreferrer" className="btn-p">💬 Book a Free Strategy Call</a>
-              <a href="#portfolio" className="btn-s">📊 See Client Results</a>
+              <a href="https://wa.me/19342022517?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20call!" target="_blank" rel="noreferrer" className="btn-p">Book a Strategy Call →</a>
+              <a href="#portfolio" className="btn-s">See Partner Results</a>
             </div>
             
-            <div className="hero-testimonial">
-              <div className="ca">MR</div>
-              <div className="ht-text">
-                <span className="cn">Michael R. — Texas</span>
-                <span className="cd">eBay Client · Earning <span className="cp">$4,200/m</span> Since Jan 2024</span>
-              </div>
-            </div>
+            {/* Inline testimonial removed as per new copy document */}
           </div>
 
           <div className="hero-visual-area">
@@ -456,34 +444,46 @@ export default function Hero() {
             </a>
             */}
 
-            {/* CLIENT YOUTUBE VIDEO */}
+            {/* CLIENT YOUTUBE VIDEO PLACEHOLDER */}
             <div style={{
               width: '100%', 
               height: '100%', 
-              background: 'rgba(26, 26, 26, 0.6)', 
+              background: '#1a1a1a', 
               border: '1px solid rgba(212, 175, 55, 0.3)', 
               borderRadius: '24px', 
               boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
               position: 'relative',
               overflow: 'hidden',
-              pointerEvents: 'none' /* Prevents clicking on the video to pause it */
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
             }}>
-              <iframe 
-                src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_HERE?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playlist=YOUTUBE_VIDEO_ID_HERE&rel=0&showinfo=0" 
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  width: '150%', /* Oversize to hide borders and YouTube logo */
-                  height: '150%',
-                  transform: 'translate(-50%, -50%)',
-                  border: 'none',
-                  pointerEvents: 'none'
-                }}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                title="Client Video"
-              ></iframe>
+              <div style={{
+                width: '80px',
+                height: '80px',
+                background: 'rgba(212, 175, 55, 0.9)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)'
+              }}>
+                <span style={{ color: '#1e1e1e', fontSize: '32px', marginLeft: '6px' }}>▶</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '20px',
+                background: 'rgba(0,0,0,0.7)',
+                padding: '8px 16px',
+                borderRadius: '8px',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '14px'
+              }}>
+                Watch: How the Partnership Works
+              </div>
             </div>
           </div>
         </div>
@@ -515,56 +515,68 @@ export default function Hero() {
         */}
         
         <div className="mobile-video-area">
-           {/* Mobile YouTube Video */}
+           {/* Mobile YouTube Video Placeholder */}
            <div style={{
               width: '100%', 
               height: '280px', 
-              background: 'rgba(26, 26, 26, 0.6)', 
+              background: '#1a1a1a', 
               border: '1px solid rgba(212, 175, 55, 0.3)', 
               borderRadius: '16px', 
               position: 'relative',
               overflow: 'hidden',
               boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-              pointerEvents: 'none'
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer'
             }}>
-              <iframe 
-                src="https://www.youtube.com/embed/YOUTUBE_VIDEO_ID_HERE?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playlist=YOUTUBE_VIDEO_ID_HERE&rel=0&showinfo=0" 
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  width: '150%',
-                  height: '150%',
-                  transform: 'translate(-50%, -50%)',
-                  border: 'none',
-                  pointerEvents: 'none'
-                }}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-                title="Client Mobile Video"
-              ></iframe>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                background: 'rgba(212, 175, 55, 0.9)',
+                borderRadius: '50%',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 0 20px rgba(212, 175, 55, 0.5)'
+              }}>
+                <span style={{ color: '#1e1e1e', fontSize: '24px', marginLeft: '4px' }}>▶</span>
+              </div>
+              <div style={{
+                position: 'absolute',
+                bottom: '16px',
+                left: '16px',
+                background: 'rgba(0,0,0,0.7)',
+                padding: '6px 12px',
+                borderRadius: '8px',
+                color: '#fff',
+                fontWeight: 600,
+                fontSize: '12px'
+              }}>
+                Watch: How the Partnership Works
+              </div>
             </div>
         </div>
 
         <div className="hero-trust-bar">
           <div className="trust-item">
-            <span className="tn">500+</span>
-            <span className="tl">Happy Clients</span>
+            <span className="tn">300+</span>
+            <span className="tl">Active Stores</span>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
-            <span className="tn">$100K</span>
-            <span className="tl">Max Monthly</span>
+            <span className="tn">£100M+</span>
+            <span className="tl">Sold</span>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
-            <span className="tn">98%</span>
-            <span className="tl">Success Rate</span>
+            <span className="tn">200+</span>
+            <span className="tl" style={{maxWidth: '120px', lineHeight: '1.2'}}>Partners Earning Monthly</span>
           </div>
           <div className="trust-divider"></div>
           <div className="trust-item">
-            <span className="tn">2019</span>
-            <span className="tl">Established</span>
+            <span className="tn">8 Years</span>
+            <span className="tl">Zero Ads.</span>
           </div>
         </div>
       </div>

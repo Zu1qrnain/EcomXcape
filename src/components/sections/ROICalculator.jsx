@@ -46,7 +46,7 @@ export default function ROICalculator() {
       <div className="roi-container">
         <div className="roi-hero">
           <h2>Project Your <em>Returns</em></h2>
-          <p>See exactly what your partnership could yield over 3 years.</p>
+          <p>Input your headcount or account count, select your platforms, and see exactly what your partnership generates — quarter by quarter, platform by platform, across three years.</p>
         </div>
 
         {/* Step 1 */}

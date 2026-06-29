@@ -2,70 +2,54 @@ import React, { useState } from "react";
 
 const servicesData = [
   {
-    id: 'amazon',
-    title: 'Amazon FBA Automation',
-    desc: 'Full store management — sourcing, listings, inventory, and customer service. We handle the entire lifecycle of your store.',
-    highlight: 'Generating $3K–$10K/m hands-free.',
-    icon: <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />,
-    link: '#amazon'
-  },
-  {
-    id: 'walmart',
-    title: 'Walmart Automation',
-    desc: 'Full marketplace management leveraging Walmart\'s explosive growth. We scale your store rapidly using proven frameworks.',
-    highlight: 'Proven path to $1M+ store in 18–24 months. 30–35% ROI.',
-    icon: <svg viewBox="0 0 100 100" fill="currentColor" style={{ height: '36px', width: '36px', color: '#ffffff' }}>
-            <path d="M49.2 11.2v17c0 1.2.9 2.1 2 2.1 1.1 0 2-.9 2-2.1v-17c0-1.2-.9-2.1-2-2.1-1.1 0-2 .9-2 2.1zM73.5 21.2c-.9-.7-2.3-.6-3.1.2l-12.1 12c-.8.8-.8 2.2 0 3 .8.8 2.2.8 3 0l12-12c.9-.9.9-2.3.2-3.2zM86.8 45H69.7c-1.2 0-2.1.9-2.1 2 0 1.1-.9 2 2.1 2h17.1c1.2 0 2.1-.9 2.1-2 0-1.1-.9-2-2.1-2zM73.5 73c.8-.8 2.3-.9 3.1-.2.8.7.9 2.1.2 3l-12.1 12c-.8.8-2.2.9-3 .2-.8-.7-.9-2.1-.2-3l12-12zM49.2 86.8v-17c0-1.2.9-2.1 2-2.1 1.1 0 2 .9 2 2.1v17c0 1.2-.9 2.1-2 2.1-1.1 0-2-.9-2-2.1zM26.5 73c-.8-.8-2.3-.9-3.1-.2-.8.7-.9 2.1-.2 3l12.1 12c.8.8 2.2.9 3 .2.8-.7.9-2.1.2-3l-12-12zM13.2 45h17.1c1.2 0 2.1.9 2.1 2 0 1.1-.9 2-2.1 2H13.2C12 49 11 48.1 11 47c0-1.1.9-2 2.2-2zM26.5 21.2c.8-.7 2.3-.6 3.1.2l12.1 12c.8.8.8 2.2 0 3-.8.8-2.2.8-3 0l-12.2-12c-.8-.9-.8-2.3 0-3.2z"/>
-          </svg>,
-    link: '#walmart'
-  },
-  {
-    id: 'tiktok',
-    title: 'TikTok Shop Automation',
-    desc: 'Built and managed from scratch — products, viral content creation, and high-volume order fulfillment.',
-    highlight: '$5K–$10K/m passive income.',
-    icon: <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" />,
-    link: '#tiktok'
-  },
-  {
     id: 'ebay',
-    title: 'eBay Store Automation',
-    desc: 'Complete eBay management from market research to automated fulfillment and dispute resolution.',
-    highlight: '$3K–$5K/m net profit stores.',
+    title: 'eBay Store',
+    highlight: 'Where every partnership starts. Dropshipping at scale — product research, listings, orders, customer service. All of it.',
+    desc: 'Your store goes live within weeks of partnership confirmation. We handle sourcing, listing optimisation, order processing and customer service across UK, US and Australian marketplaces. A typical eBay store reaches £5K+ monthly revenue by Q3.',
     icon: <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay" />,
-    link: '#ebay'
+    link: '#roi'
+  },
+  {
+    id: 'amazon',
+    title: 'Amazon FBA',
+    highlight: 'Wholesale FBA built and managed from the ground up. 15–20% quarterly ROI on your working capital.',
+    desc: 'Full FBA setup — supplier sourcing, product preparation, shipment creation, listing management, and ongoing PPC optimisation. ROI of 15–20% per quarter on your working capital deployment.',
+    icon: <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" />,
+    link: '#roi'
   },
   {
     id: 'etsy',
-    title: 'Etsy Store Automation',
-    desc: 'Trending products, keyword-optimized listings, and full order management designed for organic reach.',
-    highlight: 'Consistent 40–90% ROI monthly.',
+    title: 'Etsy Store',
+    highlight: 'High-margin product categories, keyword-optimised listings, full order management. 30–50% quarterly ROI.',
+    desc: 'Product research, listing creation with full SEO optimisation, order and review management. Etsy\'s handmade and vintage categories consistently deliver 30–50% quarterly ROI for our partners.',
     icon: <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Etsy_logo.svg" alt="Etsy" />,
-    link: '#etsy'
+    link: '#roi'
   },
   {
-    id: 'mercari',
-    title: 'Mercari Automation',
-    desc: 'Complete Mercari management from listing to delivery. Sourcing, dynamic pricing, and customer service.',
-    highlight: 'Low-competition, high-margin sales.',
-    icon: <div style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff' }}>M</div>,
-    link: '#mercari'
+    id: 'tiktok',
+    title: 'TikTok Shop',
+    highlight: 'Built from scratch — products, content strategy, orders. Fast-growing channel. 20–30% quarterly ROI.',
+    desc: 'Account setup, product strategy, creator content coordination and order fulfilment. TikTok Shop is the fastest-growing eCommerce channel in the UK and US right now.',
+    icon: <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" alt="TikTok" />,
+    link: '#roi'
   },
   {
-    id: 'llc',
-    title: 'LLC Filing & Setup',
-    desc: 'LLC formation from start to finish. We handle state filing, operating agreements, and EIN registration.',
-    highlight: '100% compliant business structures.',
-    icon: <div style={{ fontSize: '36px' }}>🏛️</div>,
-    link: '#llc'
+    id: 'onbuy',
+    title: 'OnBuy',
+    highlight: 'The UK\'s fastest-growing marketplace. Early mover advantage. 20–30% quarterly ROI.',
+    desc: 'Full store setup and management on the UK\'s fastest-growing marketplace. OnBuy\'s lower seller competition means faster momentum for new stores.',
+    icon: <div style={{ fontSize: '32px', fontWeight: '800', color: '#ffffff' }}>O</div>,
+    link: '#roi'
   },
   {
-    id: 'tax',
-    title: 'Tax Filing Services',
-    desc: 'Professional business tax filing tailored for e-commerce. Stay compliant and maximize your deductions.',
-    highlight: 'Maximize your passive income safely.',
-    icon: <div style={{ fontSize: '36px' }}>💼</div>,
-    link: '#tax'
+    id: 'walmart',
+    title: 'Walmart',
+    highlight: 'Wholesale WFS for partners with established eBay history. 20–30% quarterly ROI. Requires approval — 3 months.',
+    desc: 'Wholesale WFS requires 100+ eBay feedback ratings, a proven store history, and an aged company registration. Approval takes approximately 3 months — we handle the entire process.',
+    icon: <svg viewBox="0 0 100 100" fill="currentColor" style={{ height: '36px', width: '36px', color: '#ffffff' }}>
+            <path d="M49.2 11.2v17c0 1.2.9 2.1 2 2.1 1.1 0 2-.9 2-2.1v-17c0-1.2-.9-2.1-2-2.1-1.1 0-2 .9-2 2.1zM73.5 21.2c-.9-.7-2.3-.6-3.1.2l-12.1 12c-.8.8-.8 2.2 0 3 .8.8 2.2.8 3 0l12-12c.9-.9.9-2.3.2-3.2zM86.8 45H69.7c-1.2 0-2.1.9-2.1 2 0 1.1-.9 2 2.1 2h17.1c1.2 0 2.1-.9 2.1-2 0-1.1-.9-2-2.1-2zM73.5 73c.8-.8 2.3-.9 3.1-.2.8.7.9 2.1.2 3l-12.1 12c-.8.8-2.2.9-3 .2-.8-.7-.9-2.1-.2-3l12-12zM49.2 86.8v-17c0-1.2.9-2.1 2-2.1 1.1 0 2 .9 2 2.1v17c0 1.2-.9 2.1-2 2.1-1.1 0-2-.9-2-2.1zM26.5 73c-.8-.8-2.3-.9-3.1-.2-.8.7-.9 2.1-.2 3l12.1 12c.8.8 2.2.9 3 .2.8-.7.9-2.1.2-3l-12-12zM13.2 45h17.1c1.2 0 2.1.9 2.1 2 0 1.1-.9 2-2.1 2H13.2C12 49 11 48.1 11 47c0-1.1.9-2 2.2-2zM26.5 21.2c.8-.7 2.3-.6 3.1.2l12.1 12c.8.8.8 2.2 0 3-.8.8-2.2.8-3 0l-12.2-12c-.8-.9-.8-2.3 0-3.2z"/>
+          </svg>,
+    link: '#roi'
   }
 ];
 
@@ -366,9 +350,9 @@ export default function Services() {
       `}</style>
       <section id="services" className="services-ultra-premium">
         <div className="si">
-          <div className="sl">What We Do</div>
-          <h2 className="sh">One Agency. Six Platforms.<br/>Infinite Passive Income.</h2>
-          <p className="ss">We run your stores end-to-end. Pick your platform — we handle everything else. Click to explore our specialized services.</p>
+          <div className="sl">WHAT WE DO</div>
+          <h2 className="sh">One Partnership. Six Income Streams.</h2>
+          <p className="ss">We start every partnership on eBay — the most forgiving platform to build reputation fast. Then we expand across Amazon, Etsy, TikTok Shop, OnBuy and Walmart as your store portfolio scales. Each platform is an additional income stream. Each is run entirely by our team.</p>
           
           {/* DESKTOP / TABLET: Interactive Split Layout */}
           <div className="interactive-wrapper">
@@ -394,7 +378,7 @@ export default function Services() {
                 <p className="spotlight-desc">{activeService.desc}</p>
                 <div className="spotlight-highlight">{activeService.highlight}</div>
                 <br/>
-                <a href={activeService.link} className="spotlight-btn">Explore Details</a>
+                <a href={activeService.link} className="spotlight-btn">Calculate Your Partnership Returns →</a>
               </div>
             </div>
           </div>
@@ -411,7 +395,7 @@ export default function Services() {
                   <p>{service.desc}</p>
                   <div className="spotlight-highlight">{service.highlight}</div>
                   <br/>
-                  <a href={service.link} className="spotlight-btn" style={{ padding: '12px 24px', fontSize: '14px' }}>Explore Details</a>
+                  <a href={service.link} className="spotlight-btn" style={{ padding: '12px 24px', fontSize: '14px' }}>Calculate Your Partnership Returns →</a>
                 </div>
               </div>
             ))}
