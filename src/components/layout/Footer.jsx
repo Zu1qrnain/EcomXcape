@@ -30,8 +30,8 @@ export default function Footer() { return (
         <h4>Contact</h4>
         <ul className="fl">
           <li><a href="mailto:contact@ecomxcape.com">contact@ecomxcape.com</a></li>
-          <li><a href="https://linkedin.com/in/miangm" target="_blank" rel="noreferrer">LinkedIn — GM</a></li>
-          <li><a href="https://linkedin.com/in/ibrahimfarooq" target="_blank" rel="noreferrer">LinkedIn — Ibrahim</a></li>
+          <li><a href="https://linkedin.com/in/miangm" target="_blank" rel="noopener noreferrer">LinkedIn — GM</a></li>
+          <li><a href="https://linkedin.com/in/ibrahimfarooq" target="_blank" rel="noopener noreferrer">LinkedIn — Ibrahim</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
         </ul>

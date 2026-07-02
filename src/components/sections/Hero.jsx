@@ -402,7 +402,7 @@ export default function Hero() {
             <h1>Your Capital.<br/><em>Our Operation.</em><br/><span style={{fontSize: 'clamp(28px, 4vw, 48px)'}}>50% of Every Pound Earned — Yours.</span></h1>
             <p className="sub">We built 300+ stores across the UK, Australia and USA from a single eBay account. Today we partner with individuals and companies who want real eCommerce income — without touching a single order. You bring the capital. We build, run and scale everything. You collect half of every pound the stores generate, every month.</p>
             <div className="btns">
-              <a href="https://wa.me/19342022517?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20call!" target="_blank" rel="noreferrer" className="btn-p">Book a Strategy Call →</a>
+              <a href="https://wa.me/19342022517?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20call!" target="_blank" rel="noopener noreferrer" className="btn-p">Book a Strategy Call →</a>
               <a href="#portfolio" className="btn-s">See Partner Results</a>
             </div>
             
@@ -415,28 +415,28 @@ export default function Hero() {
               <span className="ldot"></span> Live Tracking
             </div>
             
-            <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noreferrer" className="rb float-card fc-1">
+            <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noopener noreferrer" className="rb float-card fc-1">
               <div className="pl">eBay Store</div>
               <div className="am">$4,280</div>
               <div className="gr">↑ 22% this month</div>
               <div style={{fontSize:'11px',color:'#d4af37',marginTop:'8px',fontWeight:700,letterSpacing:'0.5px'}}>Visit Store →</div>
             </a>
             
-            <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noreferrer" className="rb float-card fc-2">
+            <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noopener noreferrer" className="rb float-card fc-2">
               <div className="pl">Amazon FBA</div>
               <div className="am">$8,560</div>
               <div className="gr">↑ 34% this month</div>
               <div style={{fontSize:'11px',color:'#d4af37',marginTop:'8px',fontWeight:700,letterSpacing:'0.5px'}}>Visit Store →</div>
             </a>
             
-            <a href="https://www.tiktok.com/shop" target="_blank" rel="noreferrer" className="rb float-card fc-3">
+            <a href="https://www.tiktok.com/shop" target="_blank" rel="noopener noreferrer" className="rb float-card fc-3">
               <div className="pl">TikTok Shop</div>
               <div className="am">$6,120</div>
               <div className="gr">↑ 41% this month</div>
               <div style={{fontSize:'11px',color:'#d4af37',marginTop:'8px',fontWeight:700,letterSpacing:'0.5px'}}>Visit Store →</div>
             </a>
             
-            <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noreferrer" className="rb float-card fc-4">
+            <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noopener noreferrer" className="rb float-card fc-4">
               <div className="pl">Walmart</div>
               <div className="am">$11,300</div>
               <div className="gr">↑ 28% this month</div>
@@ -491,22 +491,22 @@ export default function Hero() {
         {/* Mobile Alternative Visuals */}
         {/* WILL BE MOVED TO ANOTHER SECTION - COMMENTED OUT FOR NOW
         <div className="mobile-visual-grid">
-           <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noreferrer" className="rb">
+           <a href="https://www.ebay.com/str/emilyslittleshop" target="_blank" rel="noopener noreferrer" className="rb">
               <div className="pl">Amazon FBA</div>
               <div className="am">$8,560</div>
               <div className="gr">↑ 34%</div>
             </a>
-            <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noreferrer" className="rb">
+            <a href="https://www.ebay.com/str/goodsforyoustore" target="_blank" rel="noopener noreferrer" className="rb">
               <div className="pl">Walmart</div>
               <div className="am">$11,300</div>
               <div className="gr">↑ 28%</div>
             </a>
-            <a href="https://www.tiktok.com/shop" target="_blank" rel="noreferrer" className="rb">
+            <a href="https://www.tiktok.com/shop" target="_blank" rel="noopener noreferrer" className="rb">
               <div className="pl">TikTok Shop</div>
               <div className="am">$6,120</div>
               <div className="gr">↑ 41%</div>
             </a>
-            <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noreferrer" className="rb">
+            <a href="https://www.ebay.com/str/smartcartpicks" target="_blank" rel="noopener noreferrer" className="rb">
               <div className="pl">eBay Store</div>
               <div className="am">$4,280</div>
               <div className="gr">↑ 22%</div>
